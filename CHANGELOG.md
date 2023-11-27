@@ -6,7 +6,7 @@
 - undefined
 
 ###	ADDED
-- undefined
+- Finalized implementation for setup docker tool procedure.
 
 ###	MODIFIED
 - undefined
