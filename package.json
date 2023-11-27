@@ -40,8 +40,7 @@
 	},
 	"keywords": [
 		"setup",
-		"nodejs",
-		"version"
+		"docker",
 	],
 	"author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
 	"contributors": [
