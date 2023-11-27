@@ -1,0 +1,57 @@
+{
+	"name": "@volkovasystem/setup-docker",
+	"alias": "setup-docker",
+	"version": "0.1.5",
+	"description": "Setup Docker",
+	"main": "setup-docker.js",
+	"scripts": {
+		"set-module-template": "source ./setting/default-tool-setting.sh && source ./tool/set-module-template.sh",
+		"transform-context-module": "source ./setting/default-tool-setting.sh && source ./tool/transform-context-module.sh",
+		"reset-context-module": "source ./setting/default-tool-setting.sh && source ./tool/reset-context-module.sh",
+		"check-module": "source ./setting/default-tool-setting.sh && source ./tool/check-module.sh",
+		"reset-module": "source ./setting/default-tool-setting.sh && source ./tool/reset-module.sh",
+		"reset-hard-module": "source ./setting/default-tool-setting.sh && export HARD_RESET_STATUS=true && source ./tool/reset-module.sh",
+		"clean-module": "source ./setting/default-tool-setting.sh && source ./tool/clean-module.sh",
+		"setup-module": "source ./setting/default-tool-setting.sh && source ./tool/setup-module.sh",
+		"bundle-module": "source ./setting/default-tool-setting.sh && source ./tool/bundle-module.sh",
+		"compress-module": "source ./setting/default-tool-setting.sh && source ./tool/compress-module.sh",
+		"resolve-module": "source ./setting/default-tool-setting.sh && source ./tool/resolve-module.sh",
+		"build-module": "source ./setting/default-tool-setting.sh && source ./tool/build-module.sh",
+		"test-module": "source ./setting/default-tool-setting.sh && source ./tool/test-module.sh",
+		"stage-module": "source ./setting/default-tool-setting.sh && source ./tool/stage-module.sh",
+		"release-module": "source ./setting/default-tool-setting.sh && source ./tool/release-module.sh",
+		"teardown-module": "source ./setting/default-tool-setting.sh && source ./tool/teardown-module.sh",
+		"prepublishOnly": "npm run release-module",
+		"postpublish": "npm run teardown-module",
+		"setup-docker": "source ./setting/default-tool-setting.sh && node ./setup-docker.run.js"
+	},
+	"bin": {
+		"setup-docker": "setup-docker.sh"
+	},
+	"os": [
+		"linux",
+		"!darwin",
+		"!win32"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/volkovasystem/setup-docker.git"
+	},
+	"keywords": [
+		"setup",
+		"nodejs",
+		"version"
+	],
+	"author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+	"contributors": [
+		"Richeve S. Bebedor <richeve.bebedor@gmail.com>"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/volkovasystem/setup-docker/issues"
+	},
+	"homepage": "https://github.com/volkovasystem/setup-docker#readme",
+	"dependencies": {
+		"parse-shell-parameter": "npm:@volkovasystem/parse-shell-parameter@0.0.2"
+	}
+}

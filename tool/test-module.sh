@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+[[ ! -d "$MODULE_TEST_DIRECTORY_PATH" ]] &&	\
+mkdir -p "$MODULE_TEST_DIRECTORY_PATH";
+
+[[ -f "$MODULE_ROOT_DIRECTORY_PATH/$MODULE_NAMESPACE_VALUE.test.js" ]] &&	\
+node "$MODULE_ROOT_DIRECTORY_PATH/$MODULE_NAMESPACE_VALUE.test.js";
+
+[[ -d "$TRASH_DIRECTORY" ]] &&					\
+[[ -d "$MODULE_TEST_DIRECTORY_PATH" ]] &&	\
+mv --force "$MODULE_TEST_DIRECTORY_PATH" "$TRASH_DIRECTORY";
+
+return 0;
