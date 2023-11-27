@@ -203,10 +203,84 @@
 						)
 				);
 
+				const removeStatus = (
+						(
+								(
+										(
+											/^true$/i
+										)
+										.test(
+											(
+												`${ parameter.remove }`
+											)
+										)
+									===	true
+								)
+						)
+					?	(
+							true
+						)
+					:	(
+								(
+										(
+											/^false/i
+										)
+										.test(
+											(
+												`${ parameter.remove }`
+											)
+										)
+									===	true
+								)
+						)
+					?	(
+							false
+						)
+					:	(
+								(
+										(
+											/^true$/i
+										)
+										.test(
+											(
+												`${ parameter.removeStatus }`
+											)
+										)
+									===	true
+								)
+						)
+					?	(
+							true
+						)
+					:	(
+								(
+										(
+											/^false/i
+										)
+										.test(
+											(
+												`${ parameter.removeStatus }`
+											)
+										)
+									===	true
+								)
+						)
+					?	(
+							false
+						)
+					:	(
+							undefined
+						)
+				);
+
 				const option = (
 					{
 						"resetStatus": (
 							resetStatus
+						),
+
+						"removeStatus": (
+							removeStatus
 						),
 					}
 				);

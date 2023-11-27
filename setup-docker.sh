@@ -41,12 +41,15 @@ SHELL_STATE="$(set +o)";
 
 SHORT_PARAMETER_LIST=(	\
 	r:					\
+	z:					\
 	h:					\
 );
 
 LONG_PARAMETER_LIST=(	\
 	resetStatus:,		\
 	reset:,				\
+	removeStatus:,		\
+	remove:,			\
 	help:				\
 );
 
@@ -67,6 +70,7 @@ exit 1;
 
 HELP_PROMPT_STATUS=false;
 RESET_STATUS=true;
+REMOVE_STATUS=false;
 
 eval set -- "$PARAMETER";
 
@@ -83,6 +87,12 @@ do
 			RESET_STATUS=false;
 			shift 2
 			;;
+		-z | --remove | --removeStatus )
+			[[ "${2,,}" == "true" ]] &&	\
+			[[ -x $(which docker) ]] &&	\
+			REMOVE_STATUS=true;
+			shift 2
+			;;
 		-- )
 			shift;
 			break
@@ -94,6 +104,9 @@ do
 done
 
 set +vx; eval "$SHELL_STATE";
+
+[[ "$REMOVE_STATUS" = true ]] &&	\
+RESET_STATUS=true;
 
 TARGET_WORKING_DIRECTORY="$(pwd)";
 
@@ -160,46 +173,57 @@ sudo apt-get autoremove --yes;
 [[ "$RESET_STATUS" = true ]] &&	\
 sudo apt-get autoclean;
 
-[[ ! -x $(which docker) ]] &&	\
-sudo apt-get install			\
-ca-certificates					\
-curl							\
+[[ "$REMOVE_STATUS" != true ]] &&	\
+[[ ! -x $(which docker) ]] &&		\
+sudo apt-get install				\
+ca-certificates						\
+curl								\
 gnupg;
 
-[[ ! -x $(which docker) ]] &&	\
+[[ "$REMOVE_STATUS" != true ]] &&	\
+[[ ! -x $(which docker) ]] &&		\
 sudo install -m 0755 -d /etc/apt/keyrings;
 
+[[ "$REMOVE_STATUS" != true ]] &&							\
 [[ ! -x $(which docker) ]] &&								\
 curl -fsSL https://download.docker.com/linux/debian/gpg |	\
 sudo gpg --yes --dearmor -o /etc/apt/keyrings/docker.gpg;
 
-[[ ! -x $(which docker) ]] &&	\
+[[ "$REMOVE_STATUS" != true ]] &&	\
+[[ ! -x $(which docker) ]] &&		\
 sudo chmod a+r /etc/apt/keyrings/docker.gpg;
 
-[[ ! -x $(which docker) ]] &&	\
+[[ "$REMOVE_STATUS" != true ]] &&	\
+[[ ! -x $(which docker) ]] &&		\
 echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] \
 https://download.docker.com/linux/ubuntu \
 "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
 sudo tee /etc/apt/sources.list.d/docker.list > /dev/null;
 
-[[ ! -x $(which docker) ]] &&	\
+[[ "$REMOVE_STATUS" != true ]] &&	\
+[[ ! -x $(which docker) ]] &&		\
 sudo apt-get update;
 
-[[ ! -x $(which docker) ]] &&	\
-sudo apt-get install			\
-docker-ce						\
-docker-ce-cli					\
-containerd.io					\
-docker-buildx-plugin			\
-docker-compose-plugin			\
+[[ "$REMOVE_STATUS" != true ]] &&	\
+[[ ! -x $(which docker) ]] &&		\
+sudo apt-get install				\
+docker-ce							\
+docker-ce-cli						\
+containerd.io						\
+docker-buildx-plugin				\
+docker-compose-plugin				\
 --yes;
 
+[[ "$REMOVE_STATUS" != true ]] &&	\
 sudo usermod -aG docker $USER;
 
+[[ "$REMOVE_STATUS" != true ]] &&	\
 sudo chown -R $USER:docker /var/run/docker.sock;
 
+[[ "$REMOVE_STATUS" != true ]] &&	\
 sudo chmod 660 /var/run/docker.sock;
 
+[[ "$REMOVE_STATUS" != true ]] &&	\
 sudo systemctl restart docker;
 
 set -o history;
