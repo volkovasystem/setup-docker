@@ -147,6 +147,17 @@ const setupDocker = (
 						)
 				);
 
+				const removeStatus = (
+						(
+							option
+							.removeStatus
+						)
+					||
+						(
+							undefined
+						)
+				);
+
 				const SETUP_COMMAND = (
 					(
 						[
@@ -168,6 +179,22 @@ const setupDocker = (
 									)
 								?	(
 										`--resetStatus ${ resetStatus }`
+									)
+								:	(
+										undefined
+									)
+							),
+
+							(
+									(
+											(
+													typeof
+													removeStatus
+												==	"boolean"
+											)
+									)
+								?	(
+										`--removeStatus ${ removeStatus }`
 									)
 								:	(
 										undefined
