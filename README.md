@@ -6,7 +6,7 @@
 
 * Default setup via source-curl
 ```bash
-source <(curl -fLqsS https://raw.githubusercontent.com/volkovasystem/setup-nodejs-version/main/setup-docker.sh)
+source <(curl -fLqsS https://raw.githubusercontent.com/volkovasystem/setup-docker/main/setup-docker.sh)
 ```
 
 * Default setup via npx
