@@ -16,7 +16,7 @@ npx @volkovasystem/setup-docker
 
 * Default setup via npm global
 ```bash
-npm install @volkovasystem/setup-docker
+npm install @volkovasystem/setup-docker --global
 ```
 
 ###	Supported OS Platform
