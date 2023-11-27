@@ -1,7 +1,7 @@
 {
 	"name": "@volkovasystem/setup-docker",
 	"alias": "setup-docker",
-	"version": "0.1.5",
+	"version": "0.0.0",
 	"description": "Setup Docker",
 	"main": "setup-docker.js",
 	"scripts": {
@@ -23,6 +23,7 @@
 		"teardown-module": "source ./setting/default-tool-setting.sh && source ./tool/teardown-module.sh",
 		"prepublishOnly": "npm run release-module",
 		"postpublish": "npm run teardown-module",
+		"postinstall": "setup-docker --resetStatus false",
 		"setup-docker": "source ./setting/default-tool-setting.sh && node ./setup-docker.run.js"
 	},
 	"bin": {
