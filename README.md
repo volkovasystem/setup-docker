@@ -4,6 +4,11 @@
 
 ###	Usage
 
+* Run the following first to setup the session
+```bash
+sudo --validate
+```
+
 * Default setup via source-curl
 ```bash
 source <(curl -fLqsS https://raw.githubusercontent.com/volkovasystem/setup-docker/main/setup-docker.sh)
