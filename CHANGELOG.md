@@ -1,5 +1,27 @@
 #	CHANGELOG
 
+##	2023-12-04/0.0.2
+
+###	UNRELEASED
+- undefined
+
+###	ADDED
+- Added force mode status.
+
+###	MODIFIED
+- Modified usage with pre-setup script.
+
+###	DEPRECATED
+- undefined
+
+###	REMOVED
+- undefined
+
+###	SECURITY
+- undefined
+
+----
+
 ##	2023-11-28/0.0.1
 
 ###	UNRELEASED
