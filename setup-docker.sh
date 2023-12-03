@@ -40,12 +40,15 @@ SHELL_STATE="$(set +o)";
 #; @todo-note: Modify to add fallback and handler for optional and required parameter.;
 
 SHORT_PARAMETER_LIST=(	\
+	f:					\
 	r:					\
 	z:					\
 	h:					\
 );
 
 LONG_PARAMETER_LIST=(	\
+	forceStatus:,		\
+	force:,				\
 	resetStatus:,		\
 	reset:,				\
 	removeStatus:,		\
@@ -69,6 +72,7 @@ getopt								\
 exit 1;
 
 HELP_PROMPT_STATUS=false;
+FORCE_MODE_STATUS=false;
 RESET_STATUS=true;
 REMOVE_STATUS=false;
 
@@ -81,9 +85,13 @@ do
 			HELP_PROMPT_STATUS=true;
 			shift 2
 			;;
+		-f | --force | --forceStatus )
+			FORCE_MODE_STATUS=true;
+			shift 2
+			;;
 		-r | --reset | --resetStatus )
-			[[ "${2,,}" == "false" ]] &&	\
-			[[ ! -x $(which docker) ]] &&	\
+			[[ "${2,,}" == "false" ]] &&									\
+			[[ ! -x $(which docker) || "$FORCE_MODE_STATUS" = true ]] &&	\
 			RESET_STATUS=false;
 			shift 2
 			;;
