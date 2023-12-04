@@ -47,7 +47,7 @@ SHORT_PARAMETER_LIST=(	\
 );
 
 LONG_PARAMETER_LIST=(	\
-	forceStatus:,		\
+	forceModeStatus:,	\
 	force:,				\
 	resetStatus:,		\
 	reset:,				\

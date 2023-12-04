@@ -1,5 +1,27 @@
 #	CHANGELOG
 
+##	2023-12-04/0.0.4
+
+###	UNRELEASED
+- undefined
+
+###	ADDED
+- undefined
+
+###	MODIFIED
+- Fixed issue with force mode status namespace.
+
+###	DEPRECATED
+- undefined
+
+###	REMOVED
+- undefined
+
+###	SECURITY
+- undefined
+
+----
+
 ##	2023-12-04/0.0.3
 
 ###	UNRELEASED
