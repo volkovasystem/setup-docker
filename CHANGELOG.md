@@ -1,5 +1,27 @@
 #	CHANGELOG
 
+##	2023-12-04/0.0.3
+
+###	UNRELEASED
+- undefined
+
+###	ADDED
+- undefined
+
+###	MODIFIED
+- Modified postinstall with support for force mode status.
+
+###	DEPRECATED
+- undefined
+
+###	REMOVED
+- undefined
+
+###	SECURITY
+- undefined
+
+----
+
 ##	2023-12-04/0.0.2
 
 ###	UNRELEASED

@@ -85,7 +85,7 @@ do
 			HELP_PROMPT_STATUS=true;
 			shift 2
 			;;
-		-f | --force | --forceStatus )
+		-f | --force | --forceModeStatus )
 			FORCE_MODE_STATUS=true;
 			shift 2
 			;;
