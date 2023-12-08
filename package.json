@@ -1,7 +1,7 @@
 {
 	"name": "@volkovasystem/setup-docker",
 	"alias": "setup-docker",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "Setup Docker",
 	"main": "setup-docker.js",
 	"scripts": {
