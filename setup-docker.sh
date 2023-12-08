@@ -113,6 +113,9 @@ done
 
 set +vx; eval "$SHELL_STATE";
 
+[[ "$CONTAINER_CONTEXT_STATUS" = true ]] &&	\
+exit 0;
+
 [[ "$REMOVE_STATUS" = true ]] &&	\
 RESET_STATUS=true;
 
@@ -186,7 +189,8 @@ sudo apt-get autoclean;
 sudo apt-get install				\
 ca-certificates						\
 curl								\
-gnupg;
+gnupg								\
+--yes;
 
 [[ "$REMOVE_STATUS" != true ]] &&	\
 [[ ! -x $(which docker) ]] &&		\
