@@ -1,5 +1,28 @@
 #	CHANGELOG
 
+##	2023-12-08/0.0.5
+
+###	UNRELEASED
+- undefined
+
+###	ADDED
+- Added support for container context status.
+- Added auto confirm on install.
+
+###	MODIFIED
+- undefined
+
+###	DEPRECATED
+- undefined
+
+###	REMOVED
+- undefined
+
+###	SECURITY
+- undefined
+
+----
+
 ##	2023-12-04/0.0.4
 
 ###	UNRELEASED
